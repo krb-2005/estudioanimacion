@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record model='ir.ui.view' id='vista_estudioanimacion_project_tree'>
+            <field name="name">vista_estudioanimacion_project_tree</field>
+            <field name="model">estudioanimacion.proyecto</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombre"/>
+                    <field name="descripcion"/>
+                    <field name="fecha_inicio"/>
+                    <field name="fecha_salida"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vista_estudioanimacion_project_form">
+            <field name="name">vista_estudioanimacion_project_form</field>
+            <field name="model">estudioanimacion.proyecto</field>
+            <field name="arch" type="xml">
+                <form string="formulario_proyecto">
+                    <sheet>
+                        <group name="group_top">
+                            <field name="nombre"/>
+                            <field name="descripcion"/>
+                            <field name="fecha_inicio"/>
+                            <field name="fecha_salida"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="accion_estudioanimacion_project_form">
+            <field name="name">Lista de proyectos</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">estudioanimacion.proyecto</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Proyectos</p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevos proyectos</p>
+            </field>
+        </record>
+
+        <menuitem name="Estudio de animación" id="menu_estudioanimacion_raiz"/>
+        <menuitem name="Administración" id="menu_estudioanimacion_administracion" parent="menu_estudioanimacion_raiz"/>
+        <menuitem name="Proyectos" id="menu_estudioanimacion_listado_proyectos" parent="menu_estudioanimacion_administracion" action="accion_estudioanimacion_project_form"/>
+    </data>
+</odoo>
