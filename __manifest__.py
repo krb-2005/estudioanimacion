@@ -26,6 +26,7 @@ Long description of module's purpose
         'views/proyecto.xml',
         'views/director.xml',
         'views/supervisor.xml',
+        'views/tecnica.xml',
         'views/views.xml',
         'views/templates.xml',
     ],

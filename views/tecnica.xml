@@ -1,0 +1,46 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="view_estudioanimacion_tecnica_tree">
+            <field name="name">view_estudioanimacion_tecnica_tree</field>
+            <field name="model">estudioanimacion.tecnica</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombre"/>
+                    <field name="descripcion"/>
+                    <field name="programa_utilizado"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_estudioanimacion_tecnica_form">
+            <field name="name">view_estudioanimacion_tecnica_form</field>
+            <field name="model">estudioanimacion.tecnica</field>
+            <field name="arch" type="xml">
+                <form string="Tecnica">
+                    <sheet>
+                        <group name="group_top">
+                            <field name="nombre"/>
+                            <field name="descripcion"/>
+                            <field name="programa_utilizado"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_estudioanimacion_tecnica_form">
+            <field name="name">Lista de técnicas</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">estudioanimacion.tecnica</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Técnicas</p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevas técnicas</p>
+            </field>
+        </record>
+
+        <menuitem name="Estudio de animación" id="menu_estudioanimacion_raiz"/>
+        <menuitem name="Administración" id="menu_estudioanimacion_administracion" parent="menu_estudioanimacion_raiz"/>
+        <menuitem name="Técnicas" id="menu_estudioanimacion_listado_tecnicas" parent="menu_estudioanimacion_administracion" action="accion_estudioanimacion_tecnica_form"/>
+    </data>
+</odoo>
