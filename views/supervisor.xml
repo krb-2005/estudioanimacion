@@ -1,0 +1,48 @@
+<odoo>
+    <data>
+        <record model="ir.ui.view" id="vista_estudioanimacion_supervisor_tree">
+            <field name="name">vista_estudioanimacion_supervisor_tree</field>
+            <field name="model">estudioanimacion.supervisor</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="nombre"/>
+                    <field name="apellido"/>
+                    <field name="email"/>
+                    <field name="telefono"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vista_estudioanimacion_supervisor_form">
+            <field name="name">vista_estudioanimacion_supervisor_form</field>
+            <field name="model">estudioanimacion.supervisor</field>
+            <field name="arch" type="xml">
+                <form string="formulario_supervisor">
+                    <sheet>
+                        <group name="group_top">
+                            <field name="nombre"/>
+                            <field name="apellido"/>
+                            <field name="email"/>
+                            <field name="telefono"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="accion_estudioanimacion_supervisor_form">
+            <field name="name">Lista de supervisores</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">estudioanimacion.supervisor</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Supervisores</p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevos supervisores</p>
+            </field>
+        </record>
+
+        <menuitem name="Estudio de animación" id="menu_estudioanimacion_raiz"/>
+        <menuitem name="Administración" id="menu_estudioanimacion_administracion" parent="menu_estudioanimacion_raiz"/>
+        <menuitem name="Supervisores" id="menu_estudioanimacion_listado_supervisores" parent="menu_estudioanimacion_administracion" action="accion_estudioanimacion_supervisor_form"/>
+    </data>
+</odoo>
