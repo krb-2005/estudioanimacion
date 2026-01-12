@@ -8,3 +8,5 @@ class diseno(models.Model):
     
     nombre = fields.Char(string="Nombre del diseño", readonly=False, required=True)
     descripcion = fields.Char(string="Descripción del diseño", required=True)
+    
+    supervisor_id = fields.Many2one("estudioanimacion.supervisor", string="Supervisor de diseño", required=True, ondelete="cascade")

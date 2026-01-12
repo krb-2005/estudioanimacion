@@ -10,3 +10,5 @@ class supervisor(models.Model):
     apellido = fields.Char(string="Apellido", readonly=False, required=True)
     email = fields.Char(string="Email", required=True)
     telefono = fields.Char(string="Teléfono", required=True)
+    
+    diseno_id = fields.One2many(string="Diseños", comodel_name="estudioanimacion.diseno", inverse_name="supervisor_id")

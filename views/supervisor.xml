@@ -9,6 +9,7 @@
                     <field name="apellido"/>
                     <field name="email"/>
                     <field name="telefono"/>
+                    <field name="diseno_id"/>
                 </tree>
             </field>
         </record>
@@ -24,6 +25,7 @@
                             <field name="apellido"/>
                             <field name="email"/>
                             <field name="telefono"/>
+                            <field name="diseno_id"/>
                         </group>
                     </sheet>
                 </form>
