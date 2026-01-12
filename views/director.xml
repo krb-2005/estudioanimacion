@@ -1,7 +1,7 @@
 <odoo>
     <data>
         <record model="ir.actions.act_window" id="accion_estudioanimacion_director_window">
-            <field name="name">Directores</field>
+            <field name="name">Lista de directores</field>
             <field name="res_model">res.partner</field>
             <field name="view_mode">tree,form</field>
         </record>
