@@ -8,6 +8,7 @@
                     <field name="nombre"/>
                     <field name="descripcion"/>
                     <field name="supervisor_id"/>
+                    <field name="proyecto_id"/>
                 </tree>
             </field>
         </record>
@@ -22,6 +23,7 @@
                             <field name="nombre"/>
                             <field name="descripcion"/>
                             <field name="supervisor_id"/>
+                            <field name="proyecto_id"/>
                         </group>
                     </sheet>
                 </form>

@@ -13,3 +13,4 @@ class proyecto(models.Model):
     
     director_id = fields.Many2one("estudioanimacion.director", string="Director", required=True, ondelete="cascade")
     tecnica_id = fields.Many2one("estudioanimacion.tecnica", string="Técnica de animación", required=True, ondelete="cascade")
+    diseno_id = fields.One2many(string="Diseños", comodel_name="estudioanimacion.diseno", inverse_name="proyecto_id")
