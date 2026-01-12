@@ -10,6 +10,7 @@
                     <field name="fecha_inicio"/>
                     <field name="fecha_salida"/>
                     <field name="director_id"/>
+                    <field name="tecnica_id"/>
                 </tree>
             </field>
         </record>
@@ -26,6 +27,7 @@
                             <field name="fecha_inicio"/>
                             <field name="fecha_salida"/>
                             <field name="director_id"/>
+                            <field name="tecnica_id"/>
                         </group>
                     </sheet>
                 </form>

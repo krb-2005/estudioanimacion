@@ -12,3 +12,4 @@ class proyecto(models.Model):
     fecha_salida = fields.Date(string="Fecha de salida")
     
     director_id = fields.Many2one("estudioanimacion.director", string="Director", required=True, ondelete="cascade")
+    tecnica_id = fields.Many2one("estudioanimacion.tecnica", string="Técnica de animación", required=True, ondelete="cascade")
