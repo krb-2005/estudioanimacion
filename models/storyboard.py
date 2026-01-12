@@ -7,6 +7,7 @@ class storyboard(models.Model):
     _description = 'estudioanimacion.storyboard'
     
     codigo = fields.Char(compute="get_code", string="Código del storyboard", readonly=True, required=True)
+    descripcion = fields.Char(string="Descripción", required=True)
     
     def get_code(self):
         for storyboard in self:
