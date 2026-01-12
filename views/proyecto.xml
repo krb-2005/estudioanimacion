@@ -12,6 +12,7 @@
                     <field name="director_id"/>
                     <field name="tecnica_id"/>
                     <field name="diseno_id"/>
+                    <field name="storyboard_id"/>
                 </tree>
             </field>
         </record>
@@ -30,6 +31,7 @@
                             <field name="director_id"/>
                             <field name="tecnica_id"/>
                             <field name="diseno_id"/>
+                            <field name="storyboard_id"/>
                         </group>
                     </sheet>
                 </form>
