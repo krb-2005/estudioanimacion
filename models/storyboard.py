@@ -9,6 +9,8 @@ class storyboard(models.Model):
     codigo = fields.Char(compute="get_code", string="Código del storyboard", readonly=True, required=True)
     descripcion = fields.Char(string="Descripción", required=True)
     
+    supervisor_id = fields.Many2one("estudioanimacion.supervisor", string="Supervisor", required=True)
+    
     def get_code(self):
         for storyboard in self:
             storyboard.codigo = "Escena " + str(storyboard.id)

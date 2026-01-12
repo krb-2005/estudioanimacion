@@ -12,3 +12,4 @@ class supervisor(models.Model):
     telefono = fields.Char(string="Teléfono", required=True)
     
     diseno_id = fields.One2many(string="Diseños", comodel_name="estudioanimacion.diseno", inverse_name="supervisor_id")
+    storyboard_id = fields.One2many(string="Storyboards", comodel_name="estudioanimacion.storyboard", inverse_name="supervisor_id")

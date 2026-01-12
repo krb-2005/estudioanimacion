@@ -7,6 +7,7 @@
                 <tree>
                     <field name="codigo"/>
                     <field name="descripcion"/>
+                    <field name="supervisor_id"/>
                 </tree>
             </field>
         </record>
@@ -20,6 +21,7 @@
                         <group name="group_top">
                             <field name="codigo"/>
                             <field name="descripcion"/>
+                            <field name="supervisor_id"/>
                         </group>
                     </sheet>
                 </form>
