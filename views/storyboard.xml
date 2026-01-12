@@ -1,0 +1,42 @@
+<odoo>
+    <data>
+        <record model='ir.ui.view' id='vista_estudioanimacion_storyboard_tree'>
+            <field name="name">vista_estudioanimacion_storyboard_tree</field>
+            <field name="model">estudioanimacion.storyboard</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="codigo"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="vista_estudioanimacion_storyboard_form">
+            <field name="name">vista_estudioanimacion_storyboard_form</field>
+            <field name="model">estudioanimacion.storyboard</field>
+            <field name="arch" type="xml">
+                <form string="formulario_storyboard">
+                    <sheet>
+                        <group name="group_top">
+                            <field name="codigo"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        
+        <record model="ir.actions.act_window" id="accion_estudioanimacion_storyboard_form">
+            <field name="name">Lista de storyboards</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">estudioanimacion.storyboard</field>
+            <field name="view_mode">tree,form</field>
+            <field name="help" type="html">
+                <p class="oe_view_nocontent_create">Storyboards</p>
+                <p>Click <strong>'Crear'</strong> para añadir nuevos storyboards</p>
+            </field>
+        </record>
+
+        <menuitem name="Estudio de animación" id="menu_estudioanimacion_raiz"/>
+        <menuitem name="Administración" id="menu_estudioanimacion_administracion" parent="menu_estudioanimacion_raiz"/>
+        <menuitem name="Storyboards" id="menu_estudioanimacion_listado_storyboards" parent="menu_estudioanimacion_administracion" action="accion_estudioanimacion_storyboard_form"/>
+    </data>
+</odoo>

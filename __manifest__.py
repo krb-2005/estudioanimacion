@@ -28,6 +28,7 @@ Long description of module's purpose
         'views/supervisor.xml',
         'views/tecnica.xml',
         'views/diseno.xml',
+        'views/storyboard.xml',
         'views/views.xml',
         'views/templates.xml',
     ],
