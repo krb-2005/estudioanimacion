@@ -9,7 +9,7 @@
                     <field name="descripcion"/>
                     <field name="fecha_inicio"/>
                     <field name="fecha_salida"/>
-                    <field name="director_id"/>
+                    <!--<field name="director_id"/>-->
                     <field name="tecnica_id"/>
                     <field name="diseno_id"/>
                     <field name="storyboard_id"/>
@@ -28,7 +28,7 @@
                             <field name="descripcion"/>
                             <field name="fecha_inicio"/>
                             <field name="fecha_salida"/>
-                            <field name="director_id"/>
+                            <!--<field name="director_id"/>-->
                             <field name="tecnica_id"/>
                             <field name="diseno_id"/>
                             <field name="storyboard_id"/>
