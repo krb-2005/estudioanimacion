@@ -1,14 +1,15 @@
 # -*- coding: utf-8 -*-
 
 from odoo import models, fields, api;
+import datetime
 
 class proyecto(models.Model):
     _name = 'estudioanimacion.proyecto'
     _description = 'estudioanimacion.proyecto'
     
     nombre = fields.Char(string="Nombre", readonly=False, required=True)
-    descripcion = fields.Char(string="Sinopsis del proyecto", required=True)
-    fecha_inicio = fields.Date(string="Fecha de inicio", required=True)
+    descripcion = fields.Char(string="Sinopsis del proyecto")
+    fecha_inicio = fields.Date(string="Fecha de inicio", default=lambda p: datetime.datetime.now())
     fecha_salida = fields.Date(string="Fecha de salida")
     
     director_id = fields.Many2one("res.partner", string="Director", required=True, ondelete="cascade")
