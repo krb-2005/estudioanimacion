@@ -12,6 +12,7 @@ class proyecto(models.Model):
     duracion = fields.Integer(string="Duración", default=10)
     fecha_inicio = fields.Datetime(string="Fecha de inicio", default=lambda p: datetime.datetime.now())
     fecha_salida = fields.Datetime(string="Fecha de salida", compute="_get_fecha_salida", store=True)
+    imagen = fields.Image(string="Imagen")
     
     director_id = fields.Many2one("res.partner", string="Director", required=True, ondelete="cascade")
     tecnica_id = fields.Many2one("estudioanimacion.tecnica", string="Técnica de animación", required=True, ondelete="cascade")
