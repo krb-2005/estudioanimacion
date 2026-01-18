@@ -1,22 +1,14 @@
 # -*- coding: utf-8 -*-
-# from odoo import http
+from odoo import http
+from odoo.http import Response
+import json
 
-
-# class Estudioanimacion(http.Controller):
-#     @http.route('/estudioanimacion/estudioanimacion', auth='public')
-#     def index(self, **kw):
-#         return "Hello, world"
-
-#     @http.route('/estudioanimacion/estudioanimacion/objects', auth='public')
-#     def list(self, **kw):
-#         return http.request.render('estudioanimacion.listing', {
-#             'root': '/estudioanimacion/estudioanimacion',
-#             'objects': http.request.env['estudioanimacion.estudioanimacion'].search([]),
-#         })
-
-#     @http.route('/estudioanimacion/estudioanimacion/objects/<model("estudioanimacion.estudioanimacion"):obj>', auth='public')
-#     def object(self, obj, **kw):
-#         return http.request.render('estudioanimacion.object', {
-#             'object': obj
-#         })
-
+class estudio_controller(http.Controller):
+    @http.route("/api/estudioanimacion/findAll", auth="public", method=["GET"], csrf=False)
+    def get_proyectos(self, **kw):
+        try:
+            proyectos = http.request.env["estudioanimacion.proyecto"].sudo().search_read([], ['id', 'nombre', 'descripcion', 'duracion', 'fecha_inicio', 'fecha_salida'])
+            res = json.dumps(proyectos, ensure_ascii=False).encode('utf-8')
+            return Response(res, content_type="application/json;charset=utf-8", status=200)
+        except Exception as e:
+            return Response(json.dumps({'error': str(e)}), content_type='application/json;charset=utf-8', status=505)
