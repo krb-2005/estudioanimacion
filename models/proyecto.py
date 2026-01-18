@@ -14,8 +14,8 @@ class proyecto(models.Model):
     fecha_salida = fields.Datetime(string="Fecha de salida", compute="_get_fecha_salida", store=True)
     imagen = fields.Image(string="Imagen")
     
-    director_id = fields.Many2one("res.partner", string="Director", required=True, ondelete="cascade")
-    tecnica_id = fields.Many2one("estudioanimacion.tecnica", string="Técnica de animación", required=True, ondelete="cascade")
+    director_id = fields.Many2one("res.partner", string="Director", ondelete="cascade")
+    tecnica_id = fields.Many2one("estudioanimacion.tecnica", string="Técnica de animación", ondelete="cascade")
     diseno_id = fields.One2many(string="Diseños", comodel_name="estudioanimacion.diseno", inverse_name="proyecto_id")
     storyboard_id = fields.One2many(string="Storyboards", comodel_name="estudioanimacion.storyboard", inverse_name="proyecto_id")
     
@@ -26,3 +26,24 @@ class proyecto(models.Model):
                 proyecto.fecha_salida = proyecto.fecha_inicio + datetime.timedelta(days = proyecto.duracion)
             else:
                 proyecto.fecha_salida = proyecto.fecha_inicio
+    
+    def f_create(self):
+        proyecto = {
+            "nombre": "Proyecto de prueba",
+            "descripcion": "Un proyecto básico",
+            "duracion": 1,
+        }
+        print(proyecto)
+        self.env["estudioanimacion.proyecto"].create(proyecto)
+    
+    def f_search_update(self):
+        proyecto = self.env["estudioanimacion.proyecto"].search([('nombre', '=', 'Proyecto de prueba')])
+        print('search()', proyecto, proyecto.name)
+        
+        proyecto.write({
+            "nombre": "Proyecto actualizado"
+        })
+    
+    def f_delete(self):
+        proyecto = self.env["estudioanimacion.proyecto"].browse([1])
+        proyecto.unlink()
