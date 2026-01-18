@@ -26,24 +26,3 @@ class proyecto(models.Model):
                 proyecto.fecha_salida = proyecto.fecha_inicio + datetime.timedelta(days = proyecto.duracion)
             else:
                 proyecto.fecha_salida = proyecto.fecha_inicio
-    
-    def f_create(self):
-        proyecto = {
-            "nombre": "Proyecto de prueba",
-            "descripcion": "Un proyecto básico",
-            "duracion": 1,
-        }
-        print(proyecto)
-        self.env["estudioanimacion.proyecto"].create(proyecto)
-    
-    def f_search_update(self):
-        proyecto = self.env["estudioanimacion.proyecto"].search([('nombre', '=', 'Proyecto de prueba')])
-        print('search()', proyecto, proyecto.name)
-        
-        proyecto.write({
-            "nombre": "Proyecto actualizado"
-        })
-    
-    def f_delete(self):
-        proyecto = self.env["estudioanimacion.proyecto"].browse([1])
-        proyecto.unlink()

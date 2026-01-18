@@ -13,3 +13,25 @@ class supervisor(models.Model):
     
     diseno_id = fields.One2many(string="Diseños", comodel_name="estudioanimacion.diseno", inverse_name="supervisor_id")
     storyboard_id = fields.One2many(string="Storyboards", comodel_name="estudioanimacion.storyboard", inverse_name="supervisor_id")
+    
+    def f_create(self):
+        supervisor = {
+            "nombre": "Supervisor",
+            "apellido": "Prueba",
+            "email": "ejemplo@gmail.com",
+            "telefono": "123456789"
+        }
+        print(supervisor)
+        self.env["estudioanimacion.supervisor"].create(supervisor)
+    
+    def f_search_update(self):
+        supervisor = self.env["estudioanimacion.supervisor"].search([('nombre', '=', 'Supervisor')])
+        print('search()', supervisor, supervisor.name)
+        
+        supervisor.write({
+            "nombre": "Supervisor actualizado"
+        })
+    
+    def f_delete(self):
+        supervisor = self.env["estudioanimacion.supervisor"].browse([1])
+        supervisor.unlink()
