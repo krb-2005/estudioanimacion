@@ -26,12 +26,12 @@ class supervisor(models.Model):
     
     def f_search_update(self):
         supervisor = self.env["estudioanimacion.supervisor"].search([('nombre', '=', 'Supervisor')])
-        print('search()', supervisor, supervisor.name)
+        print('search()', supervisor, supervisor.nombre)
         
         supervisor.write({
             "nombre": "Supervisor actualizado"
         })
     
     def f_delete(self):
-        supervisor = self.env["estudioanimacion.supervisor"].browse([1])
+        supervisor = self.env["estudioanimacion.supervisor"].search([('nombre', '=', 'Supervisor actualizado')])
         supervisor.unlink()
